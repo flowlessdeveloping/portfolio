@@ -1,0 +1,63 @@
+.page-container {
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+}
+
+.card-container {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items:center;
+  height: 70%;
+  gap: 16px;
+  margin-top: 100px;
+}
+  .mat-card{
+    height: 200px;
+    max-height: 100%;
+    width: 400px;
+    max-width: 100%;
+    justify-content: center; 
+    align-items: center; 
+    text-align: center;
+    background: #ffffff69;
+  }
+
+  @media (max-height: 800px) {
+    .card-container{
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+  
+
+  @media (max-width: 420px) {
+    .mat-card{
+      width: 50%;
+      height:25%;
+    }
+  }
+  .mat-card:hover{
+    cursor: pointer;
+    /* box-shadow: 0px 4px 10px -2px rgb(21, 105, 116)  */
+    box-shadow: 0px 4px 10px -2px rgb(255, 255, 255);
+  }
+
+
+  .large-label {
+    font-size: 60px; /* Aumenta la dimensione del font */
+    font-weight: bold; /* Rende il testo più spesso */
+    text-align: center; /* Centra il testo */
+    font-family: math;
+    color: #333; /* Colore del testo, scegli il colore che preferisci */
+    margin-top: 20px; /* Distanza dal margine superiore */
+  }
+  
+  .label-container {
+    text-align: center; /* Centro il contenuto */
+    padding: 20px;
+  }
+  
