@@ -1,62 +1,79 @@
 .page-container {
-    background-size: cover;
-    display: flex;
-    flex-direction: row;
-    gap: 100px;
-  }
-  
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+}
+
+.card-container {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.mat-card {
+  height: 650px;
+  width: 800px;
+  max-width: 100%;
+  display: flex;
+  text-align: center;
+  background: #ffffffb3;
+}
+
+.profile-container {
+  flex-direction: row;
+  display: flex;
+  align-items: flex-end; /* Allinea la base dell'immagine e del testo */
+}
+
+.profile-introduction {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Allinea il testo al fondo del contenitore */
+}
+
+.profile-picture {
+  margin-left: 3px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end; /* Allinea l'immagine al fondo */
+}
+
+.profile-picture img {
+  max-width: 200px;
+  height: auto;
+  max-height: 400px;
+}
+
+@media (max-height: 800px) {
   .card-container {
-    flex: 1;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items:center;
-    gap: 16px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
-    .mat-card{
-      height: 650px;
-      width: 800px;
-      max-width: 100%;
-      justify-content: center; 
-      align-items: center; 
-      text-align: center;
-      background: #ffffffb3;
-    }
-  
-    @media (max-height: 800px) {
-      .card-container{
-        margin-top: 10px;
-        margin-bottom: 10px;
-      }
-    }
-    
-  
-    @media (max-width: 420px) {
-      .mat-card{
-        width: 50%;
-        height:25%;
-      }
-    }
-    .mat-card:hover{
-      cursor: pointer;
-      /* box-shadow: 0px 4px 10px -2px rgb(21, 105, 116)  */
-      box-shadow: 0px 4px 10px -2px rgb(255, 255, 255);
-    }
-  
-  
-    .large-label {
-      font-size: 60px; /* Aumenta la dimensione del font */
-      font-weight: bold; /* Rende il testo più spesso */
-      text-align: center; /* Centra il testo */
-      font-family: math;
-      color: #333; /* Colore del testo, scegli il colore che preferisci */
-      margin-top: 20px; /* Distanza dal margine superiore */
-    }
-    
-    .label-container {
-      text-align: center; /* Centro il contenuto */
-      padding: 20px;
-    }
-    
+}
+
+@media (max-width: 420px) {
+  .mat-card {
+    width: 50%;
+    height: 25%;
+  }
+}
+
+mat-divider {
+  border-top-width: 2px; /* Spessore */
+  border-color: rgba(128, 128, 128, 0.382); /* Colore */
+  margin-top: 50px;
+  margin-right: 100px;
+  margin-left: 100px;
+}
+
+/* .mat-card:hover {
+  cursor: pointer;
+  box-shadow: 0px 4px 10px -2px rgb(255, 255, 255);
+} */

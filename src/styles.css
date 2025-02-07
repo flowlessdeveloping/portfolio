@@ -1,16 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; margin: 0; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color:rgba(0, 0, 0, 0.73);}
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: rgb(0, 0, 0);
+}
+
+p {
+  font-family: "Calibri";
+  font-size: large;
+}
 
 app-root {
-  background: url('assets/img/bg10.jpg') no-repeat center center fixed; 
+  background: url("assets/img/bg10.jpg") no-repeat center center fixed;
   background-size: cover;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
-  app-footer {
-    margin-top: auto;  /* Questo ancorerebbe il footer in basso */
-  }
+app-footer {
+  margin-top: auto; /* Questo ancorerebbe il footer in basso */
+}
