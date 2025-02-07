@@ -15,28 +15,62 @@
     margin-top: 20px;
     margin-bottom: 20px;
   }
-    .mat-card{
+
+  .mat-card{
       height: 650px;
       width: 800px;
-      max-width: 100%;
       justify-content: center; 
       align-items: center; 
       text-align: center;
       background: #ffffffb3;
-    }
+      display: flex;
+  }
+
+  .accordion {
+    flex: 1; 
+    width: auto;
+    overflow-y: auto;
+    width: 790px;
+  }
+
+  mat-accordion, mat-expansion-panel, at-expansion-panel-header{
+    background: #ffffffb3;
+  }
+
   
     @media (max-height: 800px) {
       .card-container{
         margin-top: 10px;
         margin-bottom: 10px;
       }
+
+      .mat-card {
+        height: auto;
+        width: auto;
+        max-height: 650px;
+        max-width: 800px;
+      }
+      .accordion{
+        height: auto;
+        width: auto;
+        max-height: 650px;
+        max-width: 790px;
+      }
     }
-    
   
     @media (max-width: 420px) {
-      .mat-card{
-        width: 50%;
-        height:25%;
+      .mat-card {
+        height: auto;
+        width: auto;
+        max-height: 650px;
+        max-width: 800px;
+      }
+
+      .accordion{
+        height: auto;
+        width: auto;
+        max-height: 650px;
+        max-width: 790px;
       }
     }
     .mat-card:hover{
@@ -44,19 +78,8 @@
       /* box-shadow: 0px 4px 10px -2px rgb(21, 105, 116)  */
       box-shadow: 0px 4px 10px -2px rgb(255, 255, 255);
     }
-  
-  
-    .large-label {
-      font-size: 60px; /* Aumenta la dimensione del font */
-      font-weight: bold; /* Rende il testo più spesso */
-      text-align: center; /* Centra il testo */
-      font-family: math;
-      color: #333; /* Colore del testo, scegli il colore che preferisci */
-      margin-top: 20px; /* Distanza dal margine superiore */
-    }
-    
-    .label-container {
-      text-align: center; /* Centro il contenuto */
-      padding: 20px;
+
+    .cv-item {
+      margin-bottom: 15px;
     }
     
