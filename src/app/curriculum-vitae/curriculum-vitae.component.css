@@ -22,7 +22,7 @@
   max-width: 100%;
   display: flex;
   text-align: center;
-  background: #ffffffb3;
+  background: #ffffff82;
 }
 
 .profile-container {
@@ -32,14 +32,16 @@
 }
 
 .profile-introduction {
-  margin: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end; /* Allinea il testo al fondo del contenitore */
+  background: #b3adad;
 }
 
 .profile-picture {
-  margin-left: 3px;
+  margin-left: 20px;
   display: flex;
   justify-content: flex-start;
   align-items: flex-end; /* Allinea l'immagine al fondo */
@@ -49,6 +51,33 @@
   max-width: 200px;
   height: auto;
   max-height: 400px;
+}
+
+p {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.list-style {
+  display: flex;
+  gap: 50px;
+  margin-top: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: large;
+  font-weight: 600px;
+}
+
+mat-list-item {
+  transition: transform 0.1s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+mat-list-item:hover {
+  cursor: pointer;
+  transform: scale(1.4);
 }
 
 @media (max-height: 800px) {
@@ -67,13 +96,8 @@
 
 mat-divider {
   border-top-width: 2px; /* Spessore */
-  border-color: rgba(128, 128, 128, 0.382); /* Colore */
+  border-color: rgba(0, 0, 0, 0.462); /* Colore */
   margin-top: 50px;
   margin-right: 100px;
   margin-left: 100px;
 }
-
-/* .mat-card:hover {
-  cursor: pointer;
-  box-shadow: 0px 4px 10px -2px rgb(255, 255, 255);
-} */

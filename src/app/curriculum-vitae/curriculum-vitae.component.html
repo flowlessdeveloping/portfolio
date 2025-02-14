@@ -8,21 +8,30 @@
         <div class="profile-picture">
           <img src="../../assets/img/profile.png" />
         </div>
-        <div class="profile-introduction">
-          <h3>Davide Valenti - Software Developer</h3>
+        <mat-card class="profile-introduction">
+          <h3>{{ introduction.title }}</h3>
           <p>
-            I am a Senior Frontend Developer with a passion for creating
-            scalable and user-friendly applications in Angular and React. While
-            my focus is on frontend, I also have professional experience in Java
-            backend development, allowing me to contribute across the stack and
-            ensure seamless integration. I thrive on technical challenges,
-            performance optimization, and delivering high-quality software
-            solutions.
+            {{ introduction.description }}
           </p>
-        </div>
+        </mat-card>
       </div>
       <mat-divider></mat-divider>
-      <div class="profile"></div>
+      <mat-list class="list-style">
+        <mat-list-item>
+          <mat-icon style="margin-right: 10px">assignment</mat-icon>
+          <div>Curriculum Vitae</div>
+        </mat-list-item>
+
+        <mat-list-item>
+          <mat-icon style="margin-right: 10px">workspace_premium</mat-icon>
+          <div>Certifications</div>
+        </mat-list-item>
+
+        <mat-list-item>
+          <mat-icon style="margin-right: 10px">work</mat-icon>
+          <div>Projects</div>
+        </mat-list-item>
+      </mat-list>
     </mat-card>
     <!-- <mat-card
       class="mat-card"
