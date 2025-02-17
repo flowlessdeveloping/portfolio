@@ -1,43 +1,41 @@
-<div class="page-container">
-  <div class="card-container">
-    <mat-card
-      class="mat-card"
-      style="border: 5px solid rgba(255, 255, 255, 0.744)"
-    >
-      <div class="profile-container">
-        <div class="profile-picture">
-          <img src="../../assets/img/profile.png" />
-        </div>
-        <mat-card class="profile-introduction">
-          <h3>{{ introduction.title }}</h3>
-          <p>
-            {{ introduction.description }}
-          </p>
-        </mat-card>
+<div class="card-container">
+  <mat-card
+    class="mat-card-1"
+    style="border: 5px solid rgba(255, 255, 255, 0.744)"
+  >
+    <div class="profile-container">
+      <div class="profile-picture">
+        <img src="../../assets/img/profile.png" />
       </div>
-      <mat-divider></mat-divider>
-      <mat-list class="list-style">
-        <mat-list-item>
-          <mat-icon style="margin-right: 10px">assignment</mat-icon>
-          <div>Curriculum Vitae</div>
-        </mat-list-item>
+      <mat-card class="profile-introduction">
+        <h3>{{ introduction.title }}</h3>
+        <p>
+          {{ introduction.description }}
+        </p>
+      </mat-card>
+    </div>
+    <mat-divider></mat-divider>
+    <mat-list class="list-style">
+      <mat-list-item>
+        <mat-icon>assignment</mat-icon>
+        Curriculum Vitae
+      </mat-list-item>
 
-        <mat-list-item>
-          <mat-icon style="margin-right: 10px">workspace_premium</mat-icon>
-          <div>Certifications</div>
-        </mat-list-item>
+      <mat-list-item>
+        <mat-icon>workspace_premium</mat-icon>
+        Certifications
+      </mat-list-item>
 
-        <mat-list-item>
-          <mat-icon style="margin-right: 10px">work</mat-icon>
-          <div>Projects</div>
-        </mat-list-item>
-      </mat-list>
-    </mat-card>
-    <!-- <mat-card
+      <mat-list-item>
+        <mat-icon>work</mat-icon>
+        Projects
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+  <!-- <mat-card
       class="mat-card"
       style="border: 5px solid rgba(255, 255, 255, 0.744)"
     >
       <div class="profile-list"></div>
     </mat-card> -->
-  </div>
 </div>
