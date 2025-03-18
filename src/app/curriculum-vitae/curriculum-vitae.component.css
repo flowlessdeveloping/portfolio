@@ -55,7 +55,7 @@ mat-divider {
 
 .mat-card-detail.animated {
   opacity: 1;
-  transform: scale(1); /* Torna alla dimensione normale */
+  transform: scale(1.05); /* Torna alla dimensione normale */
   pointer-events: auto;
 }
 

@@ -3,10 +3,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
-import { CvModel } from '../model/cv.model';
 import { CvService } from '../service/cvData.service';
 import { IntroductionModel } from '../model/introduction.model';
 import { CommonModule } from '@angular/common';
+import { CvDetailsComponent } from '../cv-details/cv-details.component';
+import { ProjectsComponent } from '../projects/projects.component';
+import { CertificationsComponent } from '../certifications/certifications.component';
 
 @Component({
   selector: 'app-curriculum-vitae',
@@ -16,6 +18,9 @@ import { CommonModule } from '@angular/common';
     MatListModule,
     MatIconModule,
     CommonModule,
+    CvDetailsComponent,
+    ProjectsComponent,
+    CertificationsComponent,
   ],
   templateUrl: './curriculum-vitae.component.html',
   styleUrl: './curriculum-vitae.component.css',
@@ -24,7 +29,6 @@ export class CurriculumVitaeComponent implements OnInit {
   showDetailedCard = false;
   currentview = '';
   animateCard = false;
-  cvData: CvModel[] = [];
   introduction: IntroductionModel = {
     title: '',
     description: '',
@@ -33,10 +37,6 @@ export class CurriculumVitaeComponent implements OnInit {
   constructor(private cvService: CvService) {}
 
   ngOnInit(): void {
-    // this.cvService.getCvData().subscribe((data) => {
-    //   this.cvData = data;
-    // });
-
     this.cvService.getIntroduction().subscribe((data) => {
       this.introduction = data;
     });

@@ -34,8 +34,16 @@
     class="mat-card mat-card-detail"
     [class.animated]="animateCard"
   >
-    <div>
-      <h1 style="color: white">{{ currentview }}</h1>
+    <div *ngIf="currentview === 'cv'">
+      <app-cv-details></app-cv-details>
+    </div>
+
+    <div *ngIf="currentview === 'certifications'">
+      <app-certifications></app-certifications>
+    </div>
+
+    <div *ngIf="currentview === 'projects'">
+      <app-projects></app-projects>
     </div>
   </mat-card>
 </div>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { CvModel } from '../model/cv.model';
 import { IntroductionModel } from '../model/introduction.model';
+import { Experiences, experiencesData } from '../model/experiences.model';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +9,7 @@ import { IntroductionModel } from '../model/introduction.model';
 export class CvService {
   constructor() {}
 
-  getCvData(): Observable<CvModel[]> {
+  getCvData(): Observable<Experiences[]> {
     return of(this.cvData);
   }
 
@@ -17,7 +17,7 @@ export class CvService {
     return of(this.introductionData);
   }
 
-  private cvData: CvModel[] = [];
+  private cvData: Experiences[] = experiencesData;
   private introductionData: IntroductionModel = {
     title: 'Davide Valenti - Software Developer',
     description:
