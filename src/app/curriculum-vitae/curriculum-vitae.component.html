@@ -1,8 +1,5 @@
 <div class="card-container">
-  <mat-card
-    class="mat-card-1"
-    style="border: 5px solid rgba(255, 255, 255, 0.744)"
-  >
+  <mat-card class="mat-card" [class.animated]="animateCard">
     <div class="profile-container">
       <div class="profile-picture">
         <img src="../../assets/img/profile.png" />
@@ -16,26 +13,29 @@
     </div>
     <mat-divider></mat-divider>
     <mat-list class="list-style">
-      <mat-list-item>
-        <mat-icon>assignment</mat-icon>
-        Curriculum Vitae
+      <mat-list-item (click)="activeDetailedCard('cv')">
+        <mat-icon style="color: blue">assignment</mat-icon>
+        <label>Curriculum Vitae</label>
       </mat-list-item>
 
-      <mat-list-item>
-        <mat-icon>workspace_premium</mat-icon>
-        Certifications
+      <mat-list-item (click)="activeDetailedCard('certifications')">
+        <mat-icon style="color: red">workspace_premium</mat-icon>
+        <label>Certifications</label>
       </mat-list-item>
 
-      <mat-list-item>
-        <mat-icon>work</mat-icon>
-        Projects
+      <mat-list-item (click)="activeDetailedCard('projects')">
+        <mat-icon style="color: green">work</mat-icon>
+        <label>Projects</label>
       </mat-list-item>
     </mat-list>
   </mat-card>
-  <!-- <mat-card
-      class="mat-card"
-      style="border: 5px solid rgba(255, 255, 255, 0.744)"
-    >
-      <div class="profile-list"></div>
-    </mat-card> -->
+  <mat-card
+    *ngIf="showDetailedCard"
+    class="mat-card mat-card-detail"
+    [class.animated]="animateCard"
+  >
+    <div>
+      <h1 style="color: white">{{ currentview }}</h1>
+    </div>
+  </mat-card>
 </div>

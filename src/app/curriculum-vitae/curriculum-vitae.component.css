@@ -1,119 +1,140 @@
-.page-container {
-  background-size: cover;
-  display: flex;
-  flex-direction: row;
-  gap: 100px;
+/* ---------- General Styles ---------- */
+label {
+  color: white;
 }
 
+label:hover {
+  cursor: pointer;
+}
+
+p {
+  margin: 0 50px;
+}
+
+mat-divider {
+  border-top-width: 2px;
+  border-color: rgba(92, 89, 89, 0.462);
+  margin: 20px 100px;
+}
+
+/* ---------- Card Container ---------- */
 .card-container {
-  flex: 1;
   display: flex;
+  flex: 1;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 16px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 50px 0 20px;
+  overflow: hidden;
 }
 
-.mat-card-1 {
-  max-height: 650px;
-  max-width: 800px;
+.mat-card {
   display: flex;
   text-align: center;
-  background: #ffffff82;
+  background: transparent;
+  border: 2px solid #7dd9e9;
+  max-width: 900px;
+  max-height: 750px;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
+.mat-card.animated {
+  transform: scale(0.9);
+}
+
+.mat-card-detail {
+  flex: 1;
+  min-height: 500px;
+  margin: 10px;
+  opacity: 0;
+  transform: scale(0.8); /* Parte più piccola */
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  pointer-events: none; /* Evita interazioni mentre è nascosta */
+}
+
+.mat-card-detail.animated {
+  opacity: 1;
+  transform: scale(1); /* Torna alla dimensione normale */
+  pointer-events: auto;
+}
+
+/* ---------- Profile Section ---------- */
 .profile-container {
-  flex-direction: row;
   display: flex;
-  align-items: flex-end; /* Allinea la base dell'immagine e del testo */
+  flex-direction: row;
+  align-items: flex-end;
   max-height: 500px;
+  max-width: 100%;
 }
 
 .profile-introduction {
-  margin-left: 20px;
-  margin-right: 20px;
-  background: #b3adad;
+  margin: 0 20px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 3px solid #08a9e4;
+  font-weight: 500;
+  padding: 10px;
 }
 
 .profile-picture {
-  margin-left: 20px;
   display: flex;
   justify-content: flex-start;
-  align-items: flex-end; /* Allinea l'immagine al fondo */
+  align-items: flex-end;
+  margin-left: 20px;
 }
 
 .profile-picture img {
   max-width: 200px;
-  height: auto;
   max-height: 400px;
+  height: auto;
 }
 
-p {
-  margin-left: 50px;
-  margin-right: 50px;
-}
-
+/* ---------- List Styles ---------- */
 .list-style {
   display: flex;
-  gap: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
   font-size: large;
-  font-weight: 600px;
+  font-weight: 600;
 }
 
 .list-style mat-list-item {
-  transition: transform 0.1s ease-in-out;
   display: flex;
-  align-items: center; /* Allinea le icone verticalmente con il testo */
+  transition: transform 0.1s ease-in-out;
+}
+
+.list-style mat-list-item:hover {
+  transform: scale(1.2);
+  cursor: pointer;
 }
 
 .list-style mat-icon {
   margin-right: 10px;
+  vertical-align: middle;
+  font-size: 24px;
 }
 
-.list-style mat-icon {
-  margin-right: 10px; /* Distanza tra icona e testo */
-  vertical-align: middle; /* Allinea verticalmente l'icona con il testo */
-  font-size: 24px; /* Puoi regolare la dimensione dell'icona se necessario */
-}
-
-mat-list-item:hover {
-  cursor: pointer;
-  transform: scale(1.2);
-}
-
+/* ---------- Responsive Styles ---------- */
 @media (max-width: 600px) {
-  .profile-introduction {
-    max-height: 300px; /* Imposta un'altezza massima per attivare lo scroll */
-    overflow-y: auto; /* Abilita lo scroll verticale */
-    overflow-x: hidden; /* Evita lo scroll orizzontale */
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-
   .profile-container {
     max-width: 400px;
+    margin: 10px;
   }
 
   .profile-picture {
     display: none;
   }
 
+  .profile-introduction {
+    max-height: 300px;
+    /* overflow-y: auto; */
+    overflow-x: hidden;
+  }
+
   .list-style {
     max-width: 400px;
   }
-}
-
-mat-divider {
-  border-top-width: 2px; /* Spessore */
-  border-color: rgba(92, 89, 89, 0.462); /* Colore */
-  margin-top: 20px;
-  margin-right: 100px;
-  margin-left: 100px;
 }
