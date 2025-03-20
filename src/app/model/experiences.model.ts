@@ -4,6 +4,7 @@ export interface Experiences {
   location?: string;
   company?: string;
   role?: string;
+  tools?: string[];
   technologies?: string[];
   responsibilities?: string[];
 }
@@ -22,13 +23,26 @@ export const experiencesData: Experiences[] = [
       'Java',
       'HTML',
       'CSS',
-      'Jest',
       'Cypress',
       'NgRx',
       'Jenkins',
       'Jira',
       'GitLab',
       'Git',
+    ],
+    tools: [
+      'Jenkins',
+      'Jira',
+      'GitLab',
+      'Git',
+      'Intellij',
+      'Visual Studio Code',
+      'Chrome DevTools',
+      'Figma',
+      'Notion',
+      'Slack',
+      'Trello',
+      'Agile development',
     ],
     responsibilities: [
       'Development & Delivery of Internal Projects: Successfully led the development and deployment of two high-impact internal projects, ensuring robust architectures, maintainability, and adherence to best practices.',
@@ -46,18 +60,22 @@ export const experiencesData: Experiences[] = [
     location: 'Palermo, Italy',
     company: 'GPI spa',
     role: 'Senior Frontend Team Leader - Professional Full Stack Developer',
-    technologies: [
-      'Angular 2+ (v12)',
-      'npm',
-      'Java Spring Boot (API integration)',
+    technologies: ['Angular 2+ (v12)', 'Java Spring Boot (API integration)'],
+    tools: [
+      'Jenkins',
+      'Jira',
+      'GitLab',
+      'Git',
+      'Intellij IDEA',
+      'Visual Studio Code',
+      'Chrome DevTools',
+      'Figma',
+      'Notion',
+      'Slack',
+      'Trello',
+      'Postman',
       'YAML',
       'OpenAPI (API documentation & configuration)',
-      'Git',
-      'GitLab',
-      'Visual Studio Code',
-      'IntelliJ IDEA',
-      'Postman',
-      'Jira',
     ],
     responsibilities: [
       'Frontend Architecture & Development: Designed and implemented a scalable, high-performance frontend framework, ensuring seamless integration with backend services.',
@@ -75,11 +93,27 @@ export const experiencesData: Experiences[] = [
     company: 'Arancia-ict (Bank consultant)',
     role: 'Full-Stack Developer Consultant',
     technologies: [
-      'Angular',
+      'Angular 2+',
       'Xframes',
       'Java Spring Framework',
       'SQL',
       'Oracle',
+    ],
+    tools: [
+      'Jenkins',
+      'Jira',
+      'GitLab',
+      'Git',
+      'Intellij IDEA',
+      'Visual Studio Code',
+      'Chrome DevTools',
+      'Figma',
+      'Notion',
+      'Slack',
+      'Trello',
+      'Postman',
+      'YAML',
+      'OpenAPI (API documentation & configuration)',
       'Google Cloud Platform',
       'Eclipse',
       'Git',
@@ -106,6 +140,9 @@ export const experiencesData: Experiences[] = [
       'Oracle',
       'Maven',
     ],
+    responsibilities: [
+      "I worked as a Backend Developer in a banking environment, where my main responsibility was to develop and implement new APIs to support and enhance the institution's internal systems. Specifically, I focused on designing and creating scalable and secure solutions, enabling seamless integration between various banking services and applications.",
+    ],
   },
   {
     startDate: '31/03/2017',
@@ -114,5 +151,8 @@ export const experiencesData: Experiences[] = [
     company: 'Lookout S.r.L.',
     role: 'Android Developer - Ionic Framework',
     technologies: ['AngularJs', 'Ionic Framework'],
+    responsibilities: [
+      "I developed an app using Ionic and AngularJS, designed to track users' routes, manage login authentication, and record the time spent at specific locations. The app integrated geolocation features to monitor movements in real time while ensuring secure access and accurate time logging for each position. This project involved both frontend and backend integration to provide a smooth, responsive user experience.",
+    ],
   },
 ];

@@ -34,8 +34,8 @@
     class="mat-card mat-card-detail"
     [class.animated]="animateCard"
   >
-    <div *ngIf="currentview === 'cv'">
-      <app-cv-details></app-cv-details>
+    <div *ngIf="currentview === 'cv'" class="details-container">
+      <app-cv-details style="background: black"></app-cv-details>
     </div>
 
     <div *ngIf="currentview === 'certifications'">

@@ -1,1 +1,37 @@
-<p>cv-details works!</p>
+<mat-expansion-panel *ngFor="let job of experiences" class="custom-panel">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <div class="panel-header-content">
+        <span class="job-role">{{ job.role }}</span>
+        <span class="job-company">{{ job.company }}</span>
+      </div>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+
+  <div class="job-details">
+    <ul>
+      <h4>Period:</h4>
+      <p>{{ job.startDate }} - {{ job.endDate }}</p>
+      <p><strong>Location:</strong> {{ job.location }}</p>
+    </ul>
+    <ul>
+      <h4>Technologies:</h4>
+      <span *ngFor="let tech of job.technologies; let index = index"
+        >{{ tech }}
+        {{ job.technologies?.length === index + 1 ? "" : ", " }}</span
+      >
+    </ul>
+
+    <ul>
+      <h4>Tools:</h4>
+      <span *ngFor="let tool of job.tools; let index = index"
+        >{{ tool }} {{ job.tools?.length === index + 1 ? "" : ", " }}</span
+      >
+    </ul>
+
+    <ul>
+      <h4>Responsibilities:</h4>
+      <li *ngFor="let res of job.responsibilities">{{ res }}</li>
+    </ul>
+  </div>
+</mat-expansion-panel>

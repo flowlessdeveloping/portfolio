@@ -44,9 +44,11 @@ mat-divider {
 }
 
 .mat-card-detail {
-  flex: 1;
-  min-height: 500px;
+  overflow-y: auto;
+  height: 550px;
+  width: 900px;
   margin: 10px;
+  background: rgba(255, 255, 255, 0.78);
   opacity: 0;
   transform: scale(0.8); /* Parte più piccola */
   transition: opacity 0.5s ease-out, transform 0.5s ease-out;
@@ -55,8 +57,13 @@ mat-divider {
 
 .mat-card-detail.animated {
   opacity: 1;
-  transform: scale(1.05); /* Torna alla dimensione normale */
   pointer-events: auto;
+}
+
+.details-container {
+  display: flex;
+  flex: 1;
+  margin: 5px;
 }
 
 /* ---------- Profile Section ---------- */
@@ -126,6 +133,10 @@ mat-divider {
 
   .profile-picture {
     display: none;
+  }
+
+  .mat-card-detail {
+    max-width: 350px;
   }
 
   .profile-introduction {

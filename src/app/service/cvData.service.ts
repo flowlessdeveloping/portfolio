@@ -9,7 +9,7 @@ import { Experiences, experiencesData } from '../model/experiences.model';
 export class CvService {
   constructor() {}
 
-  getCvData(): Observable<Experiences[]> {
+  getExperiences(): Observable<Experiences[]> {
     return of(this.cvData);
   }
 
