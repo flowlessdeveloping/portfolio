@@ -15,6 +15,10 @@ mat-expansion-panel-header {
   border-bottom: 3px solid #7dd9e9;
 }
 
+mat-expansion-panel-header:hover {
+  cursor: pointer;
+}
+
 /* Contenuto dell'header con i due estremi */
 .panel-header-content {
   display: flex;
