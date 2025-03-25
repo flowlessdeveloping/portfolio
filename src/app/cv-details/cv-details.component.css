@@ -10,8 +10,9 @@
 /* Header del pannello */
 mat-expansion-panel-header {
   font-weight: bold;
-  height: 104px;
-  border-bottom: 2px solid #7dd9e9;
+  height: 133px;
+  background: #a3effd5e;
+  border-bottom: 3px solid #7dd9e9;
 }
 
 /* Contenuto dell'header con i due estremi */

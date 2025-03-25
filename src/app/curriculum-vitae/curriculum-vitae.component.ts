@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { CvDetailsComponent } from '../cv-details/cv-details.component';
 import { ProjectsComponent } from '../projects/projects.component';
 import { CertificationsComponent } from '../certifications/certifications.component';
+import { CheckboxControlValueAccessor } from '@angular/forms';
 
 @Component({
   selector: 'app-curriculum-vitae',
@@ -37,13 +38,18 @@ export class CurriculumVitaeComponent implements OnInit {
   constructor(private cvService: CvService) {}
 
   ngOnInit(): void {
+    this.animateCard = false;
     this.cvService.getIntroduction().subscribe((data) => {
       this.introduction = data;
     });
   }
 
   activeDetailedCard(chosenView: string) {
-    if (chosenView !== this.currentview && this.showDetailedCard) {
+    if (
+      chosenView !== this.currentview &&
+      chosenView !== '' &&
+      this.showDetailedCard
+    ) {
       this.currentview = chosenView;
       return;
     } else {

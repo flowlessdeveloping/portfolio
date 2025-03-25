@@ -1,6 +1,20 @@
 /* ---------- General Styles ---------- */
+
 label {
   color: white;
+}
+
+.back-button {
+  color: white;
+  margin-left: 300px;
+}
+
+.back-button:hover {
+  cursor: pointer;
+  transform: scale(1.5);
+  border: 1px solid white;
+  border-radius: 100px;
+  transition: transform 0.1s ease-out;
 }
 
 label:hover {
@@ -32,10 +46,10 @@ mat-divider {
 .mat-card {
   display: flex;
   text-align: center;
+  height: 600px;
+  width: 1000px;
   background: transparent;
   border: 2px solid #7dd9e9;
-  max-width: 900px;
-  max-height: 750px;
   transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
@@ -45,8 +59,8 @@ mat-divider {
 
 .mat-card-detail {
   overflow-y: auto;
-  height: 550px;
-  width: 900px;
+  height: 700px;
+  width: 1200px;
   margin: 10px;
   background: rgba(255, 255, 255, 0.78);
   opacity: 0;
