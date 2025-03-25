@@ -18,7 +18,6 @@ export class CvDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.cvService.getExperiences().subscribe((data) => {
       this.experiences = data;
-      console.log(this.experiences);
     });
   }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
@@ -8,5 +8,5 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   styleUrl: './toolbar.component.css',
 })
 export class ToolbarComponent {
-  title = '';
+  @Input() title!: string;
 }

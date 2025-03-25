@@ -40,7 +40,7 @@ mat-expansion-panel-header {
 /* Dettagli corpo pannello */
 .job-details {
   padding: 16px;
-  font-size: 14px;
+  font-size: 17px;
   line-height: 1.6;
   color: #000000;
 }
@@ -49,4 +49,8 @@ mat-expansion-panel-header {
 h4 {
   color: #055866;
   margin-top: 10px;
+}
+
+li {
+  margin: 20px;
 }

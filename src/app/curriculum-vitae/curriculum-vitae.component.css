@@ -149,6 +149,10 @@ mat-divider {
     display: none;
   }
 
+  .back-button {
+    margin-left: 20px;
+  }
+
   .mat-card-detail {
     max-width: 350px;
   }

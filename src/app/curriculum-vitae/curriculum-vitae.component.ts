@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
@@ -9,7 +9,6 @@ import { CommonModule } from '@angular/common';
 import { CvDetailsComponent } from '../cv-details/cv-details.component';
 import { ProjectsComponent } from '../projects/projects.component';
 import { CertificationsComponent } from '../certifications/certifications.component';
-import { CheckboxControlValueAccessor } from '@angular/forms';
 
 @Component({
   selector: 'app-curriculum-vitae',
@@ -35,6 +34,8 @@ export class CurriculumVitaeComponent implements OnInit {
     description: '',
   };
 
+  @Output() setTitle = new EventEmitter<string>();
+
   constructor(private cvService: CvService) {}
 
   ngOnInit(): void {
@@ -54,6 +55,7 @@ export class CurriculumVitaeComponent implements OnInit {
       return;
     } else {
       this.currentview = chosenView;
+      this.setTitle.emit(this.currentview);
       setTimeout(() => {
         this.animateCard = !this.animateCard;
       }, 10);
