@@ -49,10 +49,6 @@ mat-divider {
   transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
-.mat-card.animated {
-  transform: scale(0.9);
-}
-
 .mat-card-detail {
   overflow-y: auto;
   height: 705px;
@@ -149,10 +145,9 @@ mat-divider {
     margin-left: 20px;
   }
 
-  .mat-card-detail {
-    max-width: 350px;
+  .mat-card {
+    border: none;
   }
-
   .profile-introduction {
     max-height: 300px;
     /* overflow-y: auto; */
