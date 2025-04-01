@@ -11,12 +11,19 @@
 mat-expansion-panel-header {
   font-weight: bold;
   height: 133px;
-  background: #a3effd5e;
+  background: #7dd9e92c;
   border-bottom: 3px solid #7dd9e9;
 }
 
 mat-expansion-panel-header:hover {
   cursor: pointer;
+}
+
+.mat-card-cv {
+  background: white;
+  border: 2px solid #7dd9e9;
+  margin-bottom: 10px;
+  padding: 15px;
 }
 
 /* Contenuto dell'header con i due estremi */
@@ -47,14 +54,41 @@ mat-expansion-panel-header:hover {
   font-size: 17px;
   line-height: 1.6;
   color: #000000;
+  text-align: left;
 }
 
 /* Titoli */
 h4 {
   color: #055866;
   margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+h4::before {
+  content: "\f058"; /* Icona FontAwesome o Material Icons equivalente */
+  font-family: "Material Icons";
+  font-size: 20px;
+  margin-right: 8px;
+  color: #055866;
+}
+
+/* Liste */
+ul {
+  padding-left: 20px;
+  list-style-type: none;
 }
 
 li {
-  margin: 20px;
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+li::before {
+  content: "\25C6"; /* Rombetto nero */
+  font-family: "Material Icons";
+  font-size: 18px;
+  margin-right: 8px;
+  color: #055866;
 }

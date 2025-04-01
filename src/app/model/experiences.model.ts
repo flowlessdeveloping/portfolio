@@ -20,6 +20,7 @@ export const experiencesData: Experiences[] = [
       'Angular',
       'React',
       'TypeScript',
+      'Electron Framework',
       'Java',
       'HTML',
       'CSS',
