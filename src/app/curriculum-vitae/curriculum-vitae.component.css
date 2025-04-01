@@ -34,11 +34,8 @@ mat-divider {
 /* ---------- Card Container ---------- */
 .card-container {
   display: flex;
-  flex: 1;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 16px;
   overflow: hidden;
 }
 
@@ -58,7 +55,7 @@ mat-divider {
 
 .mat-card-detail {
   overflow-y: auto;
-  height: 700px;
+  height: 705px;
   width: 1200px;
   margin: 10px;
   background: rgba(255, 255, 255, 0.78);
