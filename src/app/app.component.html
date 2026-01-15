@@ -1,5 +1,231 @@
-<app-toolbar [title]="title"></app-toolbar>
+<app-toolbar
+  [matchCount]="matchCount"
+  [currentMatchIndex]="currentMatchIndex"
+  [isItalian]="currentLang === 'it'"
+  (scrollEvent)="scrollToSection($event)"
+  (search)="onSearch($event)"
+  (languageChange)="onLanguageChange()"
+  (nextMatchEvent)="nextMatch()"
+  (prevMatchEvent)="prevMatch()"
+>
+</app-toolbar>
+
 <div class="main-content">
-  <app-curriculum-vitae (setTitle)="setTitle($event)"></app-curriculum-vitae>
+  <!-- Hero Section -->
+  <section id="home" class="hero-section reveal">
+    <div class="hero-container">
+      <div class="profile-image-container">
+        <div class="image-border">
+          <img
+            src="assets/img/profile.png"
+            alt="Profile Picture"
+            class="profile-image"
+          />
+        </div>
+      </div>
+      <div class="hero-text">
+        <div class="badge">
+          {{
+            currentLang === "it" ? "Sviluppatore Senior" : "Senior Developer"
+          }}
+        </div>
+        <h1 [innerHTML]="highlight(introduction?.title)"></h1>
+        <p
+          class="hero-description"
+          [innerHTML]="highlight(introduction?.description)"
+        ></p>
+        <div class="hero-actions">
+          <button
+            mat-flat-button
+            class="action-primary"
+            (click)="scrollToSection('experiences')"
+          >
+            {{
+              currentLang === "it" ? "Esplora Esperienze" : "Explore Experience"
+            }}
+          </button>
+          <a
+            mat-stroked-button
+            class="action-secondary"
+            href="https://www.linkedin.com/in/davide-valenti-95b7a1133/"
+            target="_blank"
+          >
+            <mat-icon>link</mat-icon>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experiences" class="section-container reveal">
+    <div class="section-header">
+      <span class="section-tag">{{
+        currentLang === "it" ? "Carriera" : "Career"
+      }}</span>
+      <h2 class="section-title">
+        {{
+          currentLang === "it"
+            ? "Esperienza Professionale"
+            : "Professional Experience"
+        }}
+      </h2>
+    </div>
+    <div class="experience-list">
+      <div *ngFor="let exp of filteredExperiences" class="experience-item">
+        <div class="exp-dot"></div>
+        <mat-card class="experience-card modern-card">
+          <mat-card-header>
+            <mat-card-title [innerHTML]="highlight(exp.role)"></mat-card-title>
+            <mat-card-subtitle class="exp-subtitle">
+              <span
+                class="company-name"
+                [innerHTML]="highlight(exp.company)"
+              ></span>
+              <span class="exp-divider"></span>
+              <span class="exp-date"
+                >{{ exp.startDate }} - {{ exp.endDate }}</span
+              >
+              <span class="exp-divider"></span>
+              <span
+                class="exp-loc"
+                [innerHTML]="highlight(exp.location)"
+              ></span>
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <div
+              class="responsibilities"
+              *ngIf="exp.responsibilities && exp.responsibilities.length > 0"
+            >
+              <h3 class="subsection-title">
+                {{
+                  currentLang === "it" ? "Responsabilità" : "Responsibilities"
+                }}
+              </h3>
+              <ul>
+                <li
+                  *ngFor="let item of exp.responsibilities"
+                  [innerHTML]="highlight(item)"
+                ></li>
+              </ul>
+            </div>
+
+            <div class="card-footer-tags">
+              <div
+                class="tag-group"
+                *ngIf="exp.technologies && exp.technologies.length > 0"
+              >
+                <mat-chip-set>
+                  <mat-chip
+                    *ngFor="let tech of exp.technologies"
+                    class="modern-chip tech"
+                  >
+                    <span [innerHTML]="highlight(tech)"></span>
+                  </mat-chip>
+                </mat-chip-set>
+              </div>
+
+              <div class="tag-group" *ngIf="exp.tools && exp.tools.length > 0">
+                <mat-chip-set>
+                  <mat-chip
+                    *ngFor="let tool of exp.tools"
+                    class="modern-chip tool"
+                  >
+                    <span [innerHTML]="highlight(tool)"></span>
+                  </mat-chip>
+                </mat-chip-set>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section-container reveal">
+    <div class="section-header">
+      <span class="section-tag">Showcase</span>
+      <h2 class="section-title">
+        {{ currentLang === "it" ? "Progetti Personali" : "Personal Projects" }}
+      </h2>
+    </div>
+    <div class="projects-grid">
+      <mat-card
+        *ngFor="let project of filteredProjects"
+        class="project-card modern-card"
+      >
+        <mat-card-header>
+          <mat-card-title
+            class="gradient-text"
+            [innerHTML]="highlight(project.title)"
+          ></mat-card-title>
+          <mat-chip-set style="margin: 10px">
+            <mat-chip
+              *ngFor="let tech of project.technologies"
+              class="modern-chip tech-mini"
+            >
+              {{ tech }}
+            </mat-chip>
+          </mat-chip-set>
+        </mat-card-header>
+        <mat-card-content>
+          <p [innerHTML]="highlight(project.description)"></p>
+        </mat-card-content>
+        <mat-card-actions>
+          <a
+            mat-flat-button
+            class="action-primary-sm"
+            [href]="project.link"
+            target="_blank"
+          >
+            <mat-icon>launch</mat-icon>
+            {{ currentLang === "it" ? "Esplora" : "Live Demo" }}
+          </a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications" class="section-container reveal">
+    <div class="section-header">
+      <span class="section-tag">Learning</span>
+      <h2 class="section-title">
+        {{ currentLang === "it" ? "Certificazioni" : "Certifications" }}
+      </h2>
+    </div>
+    <div class="certifications-grid">
+      <mat-card
+        *ngFor="let cert of filteredCertifications"
+        class="cert-card modern-card"
+      >
+        <div class="cert-badge">
+          <mat-icon>workspace_premium</mat-icon>
+        </div>
+        <mat-card-header>
+          <mat-card-title [innerHTML]="highlight(cert.title)"></mat-card-title>
+          <mat-card-subtitle
+            >{{ cert.issuer }} • {{ cert.date }}</mat-card-subtitle
+          >
+        </mat-card-header>
+        <mat-card-actions>
+          <a
+            mat-button
+            class="cert-verify-btn"
+            [href]="cert.link"
+            target="_blank"
+          >
+            {{ currentLang === "it" ? "Verifica" : "Verify" }}
+            <mat-icon>chevron_right</mat-icon>
+          </a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <app-footer></app-footer>
 </div>

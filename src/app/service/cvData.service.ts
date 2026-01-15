@@ -1,26 +1,75 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { IntroductionModel } from '../model/introduction.model';
-import { Experiences, experiencesData } from '../model/experiences.model';
+import { BehaviorSubject, Observable } from 'rxjs';
+import {
+  IntroductionModel,
+  introductionDataEq,
+} from '../model/introduction.model';
+import {
+  Experiences,
+  experiencesDataEn,
+  experiencesDataIt,
+} from '../model/experiences.model';
+import {
+  Certification,
+  certificationsDataEn,
+  certificationsDataIt,
+} from '../model/certifications.model';
+import {
+  Project,
+  projectsDataEn,
+  projectsDataIt,
+} from '../model/projects.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CvService {
+  private currentLang: 'en' | 'it' = 'en';
+  private experiencesSubject = new BehaviorSubject<Experiences[]>(
+    experiencesDataEn
+  );
+  private introductionSubject = new BehaviorSubject<IntroductionModel>(
+    introductionDataEq.en
+  );
+  private certificationsSubject = new BehaviorSubject<Certification[]>(
+    certificationsDataEn
+  );
+  private projectsSubject = new BehaviorSubject<Project[]>(projectsDataEn);
+
   constructor() {}
 
   getExperiences(): Observable<Experiences[]> {
-    return of(this.cvData);
+    return this.experiencesSubject.asObservable();
   }
 
   getIntroduction(): Observable<IntroductionModel> {
-    return of(this.introductionData);
+    return this.introductionSubject.asObservable();
   }
 
-  private cvData: Experiences[] = experiencesData;
-  private introductionData: IntroductionModel = {
-    title: 'Davide Valenti - Software Developer',
-    description:
-      'I am a Senior Frontend Developer with a passion for creating scalable and user-friendly applications in Angular and React. While my focus is on frontend, I also have professional experience in Java backend development, allowing me to contribute across the stack and ensure seamless integration. I thrive on technical challenges, performance optimization, and delivering high-quality software solutions.',
-  };
+  getCertifications(): Observable<Certification[]> {
+    return this.certificationsSubject.asObservable();
+  }
+
+  getProjects(): Observable<Project[]> {
+    return this.projectsSubject.asObservable();
+  }
+
+  setLanguage(lang: 'en' | 'it') {
+    this.currentLang = lang;
+    if (lang === 'it') {
+      this.experiencesSubject.next(experiencesDataIt);
+      this.introductionSubject.next(introductionDataEq.it);
+      this.certificationsSubject.next(certificationsDataIt);
+      this.projectsSubject.next(projectsDataIt);
+    } else {
+      this.experiencesSubject.next(experiencesDataEn);
+      this.introductionSubject.next(introductionDataEq.en);
+      this.certificationsSubject.next(certificationsDataEn);
+      this.projectsSubject.next(projectsDataEn);
+    }
+  }
+
+  getLanguage() {
+    return this.currentLang;
+  }
 }

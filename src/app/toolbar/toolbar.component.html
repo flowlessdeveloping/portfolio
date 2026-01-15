@@ -1,5 +1,58 @@
-<mat-toolbar class="toolbar">
-  <span class="title"
-    >Davide Valenti {{ title ? " - " + title : "- Portfolio" }}</span
-  >
+﻿<mat-toolbar class="modern-header">
+  <div class="header-container">
+    <!-- Logo -->
+    <div class="header-left">
+      <span class="logo-text">CV <span class="highlight">2025</span></span>
+    </div>
+
+    <!-- Navigation (Hidden on small screens) -->
+    <nav class="nav-links">
+      <button (click)="scrollTo('home')" class="nav-link">
+        {{ isItalian ? "Home" : "Home" }}
+      </button>
+      <button (click)="scrollTo('experiences')" class="nav-link">
+        {{ isItalian ? "Esperienza" : "Experience" }}
+      </button>
+      <button (click)="scrollTo('projects')" class="nav-link">
+        {{ isItalian ? "Progetti" : "Projects" }}
+      </button>
+      <button (click)="scrollTo('certifications')" class="nav-link">
+        {{ isItalian ? "Certificazioni" : "Certs" }}
+      </button>
+    </nav>
+
+    <!-- Search bar centered -->
+    <div class="header-center">
+      <div class="search-wrapper">
+        <mat-icon class="search-icon">search</mat-icon>
+        <input
+          #searchInput
+          type="text"
+          [placeholder]="isItalian ? 'Cerca...' : 'Search...'"
+          (input)="onSearch(searchInput.value)"
+        />
+        @if (matchCount > 0) {
+        <div class="search-results-badge">
+          {{ currentMatchIndex + 1 }} / {{ matchCount }}
+        </div>
+        <div class="search-nav">
+          <button (click)="prevMatch()" class="nav-mini-btn">
+            <mat-icon>expand_less</mat-icon>
+          </button>
+          <button (click)="nextMatch()" class="nav-mini-btn">
+            <mat-icon>expand_more</mat-icon>
+          </button>
+        </div>
+        }
+      </div>
+    </div>
+
+    <!-- Language toggle -->
+    <div class="header-right">
+      <button (click)="languageChange.emit()" class="lang-btn">
+        <mat-icon>language</mat-icon>
+        <span>{{ isItalian ? "ENG" : "ITA" }}</span>
+      </button>
+    </div>
+  </div>
 </mat-toolbar>
