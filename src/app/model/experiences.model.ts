@@ -179,7 +179,7 @@ export const experiencesDataIt: Experiences[] = [
     id: 'elca',
     start: '2023-11-15',
     end: null,
-    location: 'Palermo, Italia',
+    location: 'Palermo, Italia ',
     role: 'Senior Frontend Developer',
     company: 'Elca Spa',
     technologies: [
