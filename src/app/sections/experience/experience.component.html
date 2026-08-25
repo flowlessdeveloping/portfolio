@@ -1,0 +1,104 @@
+<section id="experience" class="section shell" aria-labelledby="experience-title">
+  <app-section-header
+    index="02"
+    titleId="experience-title"
+    [eyebrow]="dict().sections.experienceEyebrow"
+    [title]="dict().sections.experienceTitle"
+    [lead]="dict().sections.experienceLead"
+  />
+
+  <ol class="timeline">
+    @for (exp of items(); track exp.id; let i = $index) {
+    <li class="entry" [appReveal]="i * 70">
+      <!-- Left rail: when it happened -->
+      <div class="entry__rail">
+        <span class="entry__dot" [class.is-current]="exp.isCurrent" aria-hidden="true"></span>
+        <p class="entry__period">
+          <span>{{ exp.from }}</span>
+          <span class="entry__dash" aria-hidden="true">—</span>
+          <span>{{ exp.to }}</span>
+        </p>
+        <p class="entry__duration">{{ exp.duration }}</p>
+        <p class="entry__location">
+          <app-icon name="pin" [size]="13" />
+          <span [innerHTML]="exp.location | highlight: query()"></span>
+        </p>
+      </div>
+
+      <!-- Right: what it was -->
+      <article class="entry__body">
+        <header class="entry__head">
+          <h3 class="entry__role" [innerHTML]="exp.role | highlight: query()"></h3>
+          <p class="entry__company">
+            <app-icon name="briefcase" [size]="14" />
+            <span [innerHTML]="exp.company | highlight: query()"></span>
+            @if (exp.isCurrent) {
+            <span class="badge">{{ dict().experience.current }}</span>
+            }
+          </p>
+        </header>
+
+        <h4 class="entry__label">{{ dict().experience.responsibilities }}</h4>
+        <ul class="bullets">
+          @for (item of visibleBullets(exp.responsibilities, exp.id); track item) {
+          @let parts = item | leadIn;
+          <li>
+            @if (parts.lead) {
+            <strong [innerHTML]="parts.lead | highlight: query()"></strong>
+            }
+            <span [innerHTML]="parts.rest | highlight: query()"></span>
+          </li>
+          }
+        </ul>
+
+        @if (exp.responsibilities.length > collapsedBullets && !isSearching()) {
+        <button type="button" class="toggle no-print" (click)="toggle(exp.id)">
+          {{
+            isExpanded(exp.id)
+              ? dict().actions.showLess
+              : dict().actions.showMore
+          }}
+          <app-icon
+            [name]="isExpanded(exp.id) ? 'chevron-up' : 'chevron-down'"
+            [size]="15"
+          />
+        </button>
+        }
+
+        <div class="entry__tags">
+          <div class="taglist">
+            <span class="taglist__label eyebrow">{{ dict().experience.stack }}</span>
+            <ul>
+              @for (tech of exp.technologies; track tech) {
+              <li class="chip chip--accent" [innerHTML]="tech | highlight: query()"></li>
+              }
+            </ul>
+          </div>
+
+          @if (exp.tools?.length) {
+          <div class="taglist">
+            <span class="taglist__label eyebrow">{{ dict().experience.tools }}</span>
+            <ul>
+              @for (tool of exp.tools; track tool) {
+              <li class="chip" [innerHTML]="tool | highlight: query()"></li>
+              }
+            </ul>
+          </div>
+          }
+        </div>
+      </article>
+    </li>
+    } @empty {
+    <li class="empty">
+      <strong>{{ dict().search.empty }}</strong>
+      {{ dict().search.emptyHint }}
+    </li>
+    }
+  </ol>
+
+  @if (hiddenCount() > 0 && items().length) {
+  <p class="hidden-note no-print">
+    {{ hiddenCount() }} {{ dict().search.hiddenBySearch }}
+  </p>
+  }
+</section>

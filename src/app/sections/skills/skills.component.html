@@ -1,0 +1,41 @@
+<section id="skills" class="section shell" aria-labelledby="skills-title">
+  <app-section-header
+    index="01"
+    titleId="skills-title"
+    [eyebrow]="dict().sections.skillsEyebrow"
+    [title]="dict().sections.skillsTitle"
+    [lead]="dict().sections.skillsLead"
+  />
+
+  @if (visibleCore().length) {
+  <div class="core" [appReveal]="40">
+    <p class="core__label eyebrow">{{ dict().sections.coreStack }}</p>
+    <ul class="core__list">
+      @for (skill of visibleCore(); track skill) {
+      <li class="chip chip--accent" [innerHTML]="skill | highlight: query()"></li>
+      }
+    </ul>
+  </div>
+  }
+
+  <div class="groups">
+    @for (group of groups(); track group.id; let i = $index) {
+    <article class="group" [appReveal]="i * 60">
+      <h3 class="group__title">
+        <span class="group__icon"><app-icon [name]="group.icon" [size]="17" /></span>
+        {{ group.label }}
+      </h3>
+      <ul class="group__list">
+        @for (skill of group.skills; track skill) {
+        <li class="chip" [innerHTML]="skill | highlight: query()"></li>
+        }
+      </ul>
+    </article>
+    } @empty {
+    <p class="empty">
+      <strong>{{ dict().search.empty }}</strong>
+      {{ dict().search.emptyHint }}
+    </p>
+    }
+  </div>
+</section>

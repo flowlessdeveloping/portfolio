@@ -1,0 +1,48 @@
+<section id="certifications" class="section shell" aria-labelledby="certifications-title">
+  <app-section-header
+    index="04"
+    titleId="certifications-title"
+    [eyebrow]="dict().sections.certificationsEyebrow"
+    [title]="dict().sections.certificationsTitle"
+    [lead]="dict().sections.certificationsLead"
+  />
+
+  <ul class="grid">
+    @for (cert of items(); track cert.link; let i = $index) {
+    <li class="cert" [appReveal]="i * 70">
+      <span class="cert__icon" aria-hidden="true">
+        <app-icon name="award" [size]="19" />
+      </span>
+
+      <div class="cert__body">
+        <h3 class="cert__title" [innerHTML]="cert.title | highlight: query()"></h3>
+        <p class="cert__meta">
+          <span [innerHTML]="cert.issuer | highlight: query()"></span>
+          <span class="cert__sep" aria-hidden="true">·</span>
+          <span [innerHTML]="cert.date | highlight: query()"></span>
+        </p>
+        <ul class="cert__topics">
+          @for (topic of cert.topics; track topic) {
+          <li class="chip" [innerHTML]="topic | highlight: query()"></li>
+          }
+        </ul>
+      </div>
+
+      <a
+        class="cert__verify"
+        [href]="cert.link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {{ dict().actions.verify }}
+        <app-icon name="external" [size]="14" />
+      </a>
+    </li>
+    } @empty {
+    <li class="empty">
+      <strong>{{ dict().search.empty }}</strong>
+      {{ dict().search.emptyHint }}
+    </li>
+    }
+  </ul>
+</section>

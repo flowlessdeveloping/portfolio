@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" data-theme="dark">
   <head>
     <meta charset="utf-8" />
@@ -58,8 +58,8 @@
             stored === "light" || stored === "dark"
               ? stored
               : window.matchMedia("(prefers-color-scheme: light)").matches
-                ? "light"
-                : "dark";
+              ? "light"
+              : "dark";
           document.documentElement.dataset.theme = theme;
         } catch (e) {
           /* keep the dark default */
@@ -69,38 +69,5 @@
   </head>
   <body>
     <app-root></app-root>
-    <script>
-      window.addEventListener("load", function () {
-        setTimeout(function () {
-          var vw = document.documentElement.clientWidth;
-          //var out = ['VIEWPORT=' + vw, 'SCROLLWIDTH=' + document.documentElement.scrollWidth];
-          document.querySelectorAll("*").forEach(function (el) {
-            var r = el.getBoundingClientRect();
-            if (r.right > vw + 1 || r.left < -1) {
-              out.push(
-                el.tagName +
-                  "." +
-                  (el.className.baseVal !== undefined
-                    ? el.className.baseVal
-                    : el.className
-                  )
-                    .toString()
-                    .slice(0, 40) +
-                  " L=" +
-                  Math.round(r.left) +
-                  " R=" +
-                  Math.round(r.right) +
-                  " W=" +
-                  Math.round(r.width),
-              );
-            }
-          });
-          var pre = document.createElement("pre");
-          pre.id = "dbg";
-          pre.textContent = out.slice(0, 40).join("\n");
-          document.body.appendChild(pre);
-        }, 1500);
-      });
-    </script>
   </body>
 </html>

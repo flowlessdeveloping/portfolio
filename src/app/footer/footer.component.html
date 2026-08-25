@@ -1,12 +1,33 @@
-<footer>
-  <div class="footer-content">
-    <p>&copy; 2025 Davide Valenti. All rights reserved.</p>
-    <div class="social-links">
-      <a
-        href="https://www.linkedin.com/in/davide-valenti-95b7a1133/"
-        target="_blank"
-        >LinkedIn</a
-      >
+<footer class="footer">
+  <div class="footer__inner shell">
+    <div class="footer__cta">
+      <p class="eyebrow">{{ dict().footer.getInTouch }}</p>
+      <p class="footer__role">{{ intro().role }}</p>
+      <p class="footer__location">{{ profile.location }}</p>
     </div>
+
+    <div class="footer__links no-print">
+      @for (link of profile.links; track link.href) {
+      <a
+        class="footer__link"
+        [href]="link.href"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <app-icon name="linkedin" [size]="16" />
+        {{ link.label }}
+      </a>
+      }
+
+      <button type="button" class="footer__top" (click)="scrollToTop()">
+        {{ dict().actions.backToTop }}
+        <app-icon name="arrow-up" [size]="15" />
+      </button>
+    </div>
+  </div>
+
+  <div class="footer__bar shell">
+    <p>&copy; {{ year }} {{ profile.name }}. {{ dict().footer.rights }}</p>
+    <p class="footer__built">{{ dict().footer.builtWith }}</p>
   </div>
 </footer>

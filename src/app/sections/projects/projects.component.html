@@ -1,0 +1,54 @@
+<section id="projects" class="section shell" aria-labelledby="projects-title">
+  <app-section-header
+    index="03"
+    titleId="projects-title"
+    [eyebrow]="dict().sections.projectsEyebrow"
+    [title]="dict().sections.projectsTitle"
+    [lead]="dict().sections.projectsLead"
+  />
+
+  <div class="grid">
+    @for (project of items(); track project.id; let i = $index) {
+    <article class="card" [appReveal]="i * 70">
+      <div class="card__top">
+        <h3 class="card__title" [innerHTML]="project.title | highlight: query()"></h3>
+        <a
+          class="card__link"
+          [href]="project.link"
+          target="_blank"
+          rel="noopener noreferrer"
+          [attr.aria-label]="dict().actions.liveDemo + ': ' + project.title"
+        >
+          <app-icon name="external" [size]="16" />
+        </a>
+      </div>
+
+      <p
+        class="card__text"
+        [innerHTML]="project.description | highlight: query()"
+      ></p>
+
+      <ul class="card__tags">
+        @for (tech of project.technologies; track tech) {
+        <li class="chip" [innerHTML]="tech | highlight: query()"></li>
+        }
+      </ul>
+
+      <a
+        class="btn btn--ghost card__cta"
+        [href]="project.link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {{ dict().actions.liveDemo }}
+        <app-icon name="external" [size]="15" />
+      </a>
+    </article>
+    } @empty {
+    <p class="empty">
+      <strong>{{ dict().search.empty }}</strong>
+      {{ dict().search.emptyHint }}
+    </p>
+    }
+  </div>
+</section>
