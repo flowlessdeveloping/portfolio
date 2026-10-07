@@ -7,6 +7,8 @@ export interface ProfileLink {
 export interface Profile {
   name: string;
   location: string;
+  phone: string;
+  phoneHref: string;
   links: ProfileLink[];
 }
 
@@ -14,6 +16,8 @@ export interface Profile {
 export const profile: Profile = {
   name: 'Davide Valenti',
   location: 'Palermo, Italy',
+  phone: '+39 329 534 3049',
+  phoneHref: 'tel:+393295343049',
   links: [
     {
       label: 'LinkedIn',

@@ -4,6 +4,9 @@
       <p class="eyebrow">{{ dict().footer.getInTouch }}</p>
       <p class="footer__role">{{ intro().role }}</p>
       <p class="footer__location">{{ profile.location }}</p>
+      <p class="footer__location">
+        <a [href]="profile.phoneHref">{{ profile.phone }}</a>
+      </p>
     </div>
 
     <div class="footer__links no-print">
